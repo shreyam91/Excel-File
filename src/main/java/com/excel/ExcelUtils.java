@@ -43,7 +43,6 @@ public class ExcelUtils {
             } else if (sourceCell.getCellType() == CellType.BOOLEAN) {
                 targetCell.setCellValue(sourceCell.getBooleanCellValue());
             }
-            // Add more cell types if needed (Date, Formula, etc.)
         }
     }
 }

@@ -21,7 +21,8 @@ public class ExcelDataSegregator {
     public void processExcel(String inputFilePath) {
         try (FileInputStream inputStream = new FileInputStream(new File(inputFilePath))) {
             Workbook workbook = new XSSFWorkbook(inputStream);
-            Sheet sheet = workbook.getSheetAt(0); // Data is in the first sheet
+            Sheet sheet = workbook.getSheetAt(0); // If the data is in the first sheet
+            // Here I am working on status column which is present in the excel file.
 
             // Map to hold data segregated by status
             HashMap<String, List<Row>> statusData = new HashMap<>();
@@ -31,6 +32,7 @@ public class ExcelDataSegregator {
                 Row row = sheet.getRow(rowIndex);
 
                 int statusColumnIndex = 5;  // Assuming status is in column 6 (index 5)
+                
                 // Get the status value from the specified column
                 String status = row.getCell(statusColumnIndex).getStringCellValue();
 
